@@ -7,7 +7,7 @@ const DATA=[{"group": 1, "time": "00:00–05:40", "term": "neuroscience", "meani
 const KEY='em-brain-vocab-20261031-v1';
 const groups=['','思維轉變與心理韌性','專注過程與當下表現','掌控感、習慣與行動','放下執著與全力以赴','自我信任與思考習慣','照顧自己與內在安全感'];
 let selected;try{const x=JSON.parse(localStorage.getItem(KEY));selected=new Set(Array.isArray(x)?x:DATA.filter(d=>d.previous).map(d=>d.term+'|'+d.group));}catch(e){selected=new Set(DATA.filter(d=>d.previous).map(d=>d.term+'|'+d.group));}
-let mode='all', search='', group='all', expanded=new Set(), flashIndex=0,flipped=false;
+let mode='all', search='', group='all', expanded=new Set();
 const $=id=>document.getElementById(id), id=d=>d.term+'|'+d.group;
 function persist(){try{localStorage.setItem(KEY,JSON.stringify([...selected]))}catch(e){notify('此瀏覽器限制本機儲存，請匯出複習清單備份。')}}
 function notify(s){$('notice').textContent=s;$('notice').hidden=false}
